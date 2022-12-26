@@ -12,8 +12,6 @@ document
 put body (reactElement) in rootElement
 `ReactDOM.render(body, rootElement)`
 
-![img](/30-days-of-react/src/images/Mat.PNG)
-
 ````js
 import React from "react";
 import ReactDOM from "react-dom";
