@@ -1,0 +1,15 @@
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }
+
+img {
+  max-width: 50%;
+  height: auto;
+  position: center;
+}
+.countryimg{
+  text-align: center;
+}
