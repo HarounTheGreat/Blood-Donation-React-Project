@@ -1,282 +1,332 @@
 // index.js
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import asabenehImage from './images/asabeneh.jpg'
-import { countriesData } from './data/countries'
 
-// Header component
-class Header extends React.Component {
-  render() {
-    console.log(this.props.data)
-    const {
-      welcome,
-      title,
-      subtitle,
-      author: { firstName, lastName },
-      date,
-    } = this.props.data
+const options = [
+  {
+    value: '',
+    label: '-- Select Country--',
+  },
+  {
+    value: 'Finland',
+    label: 'Finland',
+  },
+  {
+    value: 'Sweden',
+    label: 'Sweden',
+  },
+  {
+    value: 'Norway',
+    label: 'Norway',
+  },
+  {
+    value: 'Denmark',
+    label: 'Denmark',
+  },
+]
 
-    return (
-      <header>
-        <div className='header-wrapper'>
-          <h1>{welcome}</h1>
-          <h2>{title}</h2>
-          <h3>{subtitle}</h3>
-          <p>
-            {firstName} {lastName}
-          </p>
-          <small>{date}</small>
-        </div>
-      </header>
-    )
-  }
-}
+// mapping the options to list(array) of JSX options
 
-const Country = ({
-  country: { name, capital, flag, languages, population, currency },
-}) => {
-  const formatedCapital =
-    capital.length > 0 ? (
-      <>
-        <span>Capital: </span>
-        {capital}
-      </>
-    ) : (
-      ''
-    )
-  const formatLanguage = languages.length > 1 ? `Languages` : `Language`
-  return (
-    <div className='country'>
-      <div className='country_flag'>
-        <img src={flag} alt={name} />
-      </div>
-      <h3 className='country_name'>{name.toUpperCase()}</h3>
-      <div class='country_text'>
-        <p>{formatedCapital}</p>
-        <p>
-          <span>{formatLanguage}: </span>
-          {languages.join(', ')}
-        </p>
-        <p>
-          <span>Population: </span>
-          {population.toLocaleString()}
-        </p>
-        <p>
-          <span>Currency: </span>
-          {currency}
-        </p>
-      </div>
-    </div>
-  )
-}
+const selectOptions = options.map(({ value, label }) => (
+  <option value={value}> {label}</option>
+))
 
-// User Card Component
-const UserCard = () => (
-  <div className='user-card'>
-    <img src={asabenehImage} alt='asabeneh image' />
-    <h2>Asabeneh Yetayeh</h2>
-  </div>
-)
-
-// Hexadecimal color generator
-const hexaColor = () => {
-  let str = '0123456789abcdef'
-  let color = ''
-  for (let i = 0; i < 6; i++) {
-    let index = Math.floor(Math.random() * str.length)
-    color += str[index]
-  }
-  return '#' + color
-}
-
-const HexaColor = () => <div>{hexaColor()}</div>
-
-const Message = ({ message }) => (
-  <div>
-    <h1>{message}</h1>
-  </div>
-)
-const Login = () => (
-  <div>
-    <h3>Please Login</h3>
-  </div>
-)
-const Welcome = (props) => (
-  <div>
-    <h1>Welcome to 30 Days Of React</h1>
-  </div>
-)
-
-// A button component
-const Button = ({ text, onClick, style }) => (
-  <button style={style} onClick={onClick}>
-    {text}
-  </button>
-)
-
-// TechList Component
-// class base component
-class TechList extends React.Component {
-  render() {
-    const { techs } = this.props
-    const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
-    return techsFormatted
-  }
-}
-
-// Main Component
-// Class Component
-class Main extends React.Component {
-  render() {
-    const {
-      techs,
-      greetPeople,
-      handleTime,
-      loggedIn,
-      handleLogin,
-      message,
-    } = this.props
-    console.log(message)
-
-    const status = loggedIn ? <Welcome /> : <Login />
-    return (
-      <main>
-        <div className='main-wrapper'>
-          <p>Prerequisite to get started react.js:</p>
-          <ul>
-            <TechList techs={this.props.techs} />
-          </ul>
-          {techs.length === 3 && (
-            <p>You have all the prerequisite courses to get started React</p>
-          )}
-          <div>
-            <Button
-              text='Show Time'
-              onClick={handleTime}
-              style={buttonStyles}
-            />{' '}
-            <Button
-              text='Greet People'
-              onClick={greetPeople}
-              style={buttonStyles}
-            />
-            {!loggedIn && <p>Please login to access more information about 30 Days Of React challenge</p>}
-          </div>
-          <div style={{ margin: 30 }}>
-            <Button
-              text={loggedIn ? 'Logout' : 'Login'}
-              style={buttonStyles}
-              onClick={handleLogin}
-            />
-            <br />
-            {status}
-          </div>
-          <Message message={message} />
-        </div>
-      </main>
-    )
-  }
-}
-
-// CSS styles in JavaScript Object
-const buttonStyles = {
-  backgroundColor: '#61dbfb',
-  padding: 10,
-  border: 'none',
-  borderRadius: 5,
-  margin: 3,
-  cursor: 'pointer',
-  fontSize: 22,
-  color: 'white',
-  margin: '0 auto',
-}
-
-// Footer Component
-// Class component
-class Footer extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    return (
-      <footer>
-        <div className='footer-wrapper'>
-          <p>Copyright {this.props.date.getFullYear()}</p>
-        </div>
-      </footer>
-    )
-  }
-}
-
-class App extends React.Component {
+class App extends Component {
+  // declaring state
   state = {
-    loggedIn: false,
-    techs: ['HTML', 'CSS', 'JS'],
-    message: 'Click show time or Greet people to change me',
+    firstName: '',
+    lastName: '',
+    email: '',
+    country: '',
+    tel: '',
+    dateOfBirth: '',
+    favoriteColor: '',
+    weight: '',
+    gender: '',
+    file: '',
+    bio: '',
+    skills: {
+      html: false,
+      css: false,
+      javascript: false,
+    },
+    touched: {
+      firstName: false,
+      lastName: false,
+    },
   }
-  handleLogin = () => {
-    this.setState({
-      loggedIn: !this.state.loggedIn,
-    })
-  }
-  showDate = (time) => {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
+  handleChange = (e) => {
+    /*
+     we can get the name and value like: e.target.name, e.target.value
+    Wwe can also destructure name and value from e.target
+    const name = e.target.name
+    const value = e.target.value
+    */
+    const { name, value, type, checked } = e.target
+    /*
+    [variablename] we can make a value stored in a certain variable could be a key for an object, in this case a key for the state
+    */
 
-    const month = months[time.getMonth()].slice(0, 3)
-    const year = time.getFullYear()
-    const date = time.getDate()
-    return `${month} ${date}, ${year}`
+    if (type === 'checkbox') {
+      this.setState({
+        skills: { ...this.state.skills, [name]: checked },
+      })
+    } else if (type === 'file') {
+      this.setState({ [name]: e.target.files[0] })
+    } else {
+      this.setState({ [name]: value })
+    }
   }
-  handleTime = () => {
-    let message = this.showDate(new Date())
-    this.setState({ message })
+  handleBlur = (e) => {
+    const { name, value } = e.target
+    this.setState({ touched: { ...this.state.touched, [name]: true } })
   }
-  greetPeople = () => {
-    let message = 'Welcome to 30 Days Of React Challenge, 2020'
-    this.setState({ message })
+  validate = () => {
+    // Object to collect error feedback and to display on the form
+    const errors = {
+      firstName: '',
+    }
+
+    if (
+      (this.state.touched.firstName && this.state.firstName.length < 3) ||
+      (this.state.touched.firstName && this.state.firstName.length > 12)
+    ) {
+      errors.firstName = 'First name must be between 2 and 12'
+    }
+    return errors
+  }
+  handleSubmit = (e) => {
+    /*
+      e.preventDefault()
+      stops the default behavior of form element 
+      specifically refreshing of page
+      */
+    e.preventDefault()
+
+    const {
+      firstName,
+      lastName,
+      email,
+      country,
+      gender,
+      tel,
+      dateOfBirth,
+      favoriteColor,
+      weight,
+      bio,
+      file,
+      skills,
+    } = this.state
+
+    const formattedSkills = []
+    for (const key in skills) {
+      console.log(key)
+      if (skills[key]) {
+        formattedSkills.push(key.toUpperCase())
+      }
+    }
+    const data = {
+      firstName,
+      lastName,
+      email,
+      country,
+      gender,
+      tel,
+      dateOfBirth,
+      favoriteColor,
+      weight,
+      bio,
+      file,
+      skills: formattedSkills,
+    }
+    /*
+     the is the place where we connect backend api
+      to send the data to the database
+      */
+    console.log(data)
   }
 
   render() {
-    const data = {
-      welcome: '30 Days Of React',
-      title: 'Getting Started React',
-      subtitle: 'JavaScript Library',
-      author: {
-        firstName: 'Asabeneh',
-        lastName: 'Yetayeh',
-      },
-      date: 'Oct 9, 2020',
-    }
-    const techs = ['HTML', 'CSS', 'JavaScript']
+    // accessing the state value by destrutcturing the state
+    // the noValidate attribute on the form is to stop the HTML5 built-in validation
 
+    const { firstName } = this.validate()
     return (
-      <div className='app'>
-        {this.state.backgroundColor}
-        <Header data={data} />
+      <div className='App'>
+        <h3>Add Student</h3>
+        <form onSubmit={this.handleSubmit} noValidate>
+          <div className='row'>
+            <div className='form-group'>
+              <label htmlFor='firstName'>First Name </label>
+              <input
+                type='text'
+                name='firstName'
+                value={this.state.firstName}
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
+                placeholder='First Name'
+              /> <br />
+              <small>{firstName}</small>
+            </div>
+            <div className='form-group'>
+              <label htmlFor='lastName'>Last Name </label>
+              <input
+                type='text'
+                name='lastName'
+                value={this.state.lastName}
+                onChange={this.handleChange}
+                placeholder='Last Name'
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='email'>Email </label>
+              <input
+                type='email'
+                name='email'
+                value={this.state.email}
+                onChange={this.handleChange}
+                placeholder='Email'
+              />
+            </div>
+          </div>
 
-        <Main
-          techs={techs}
-          handleTime={this.handleTime}
-          greetPeople={this.greetPeople}
-          loggedIn={this.state.loggedIn}
-          handleLogin={this.handleLogin}
-          message={this.state.message}
-        />
+          <div className='form-group'>
+            <label htmlFor='tel'>Telephone </label>
+            <input
+              type='tel'
+              name='tel'
+              value={this.state.tel}
+              onChange={this.handleChange}
+              placeholder='Tel'
+            />
+          </div>
 
-        <Footer date={new Date()} />
+          <div className='form-group'>
+            <label htmlFor='dateOfBirth'>Date of birth </label>
+            <input
+              type='date'
+              name='dateOfBirth'
+              value={this.state.dateOfBirth}
+              onChange={this.handleChange}
+              placeholder='Date of Birth'
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='favoriteColor'>Favorite Color</label>
+            <input
+              type='color'
+              id='favoriteColor'
+              name='favoriteColor'
+              value={this.state.favoriteColor}
+              onChange={this.handleChange}
+              placeholder='Favorite Color'
+            />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='weight'>Weight </label>
+            <input
+              type='number'
+              id='weight'
+              name='weight'
+              value={this.state.weight}
+              onChange={this.handleChange}
+              placeholder='Weight in Kg'
+            />
+          </div>
+          <div>
+            <label htmlFor='country'>Country</label> <br />
+            <select name='country' onChange={this.handleChange} id='country'>
+              {selectOptions}
+            </select>
+          </div>
+
+          <div>
+            <p>Gender</p>
+            <div>
+              <input
+                type='radio'
+                id='female'
+                name='gender'
+                value='Female'
+                onChange={this.handleChange}
+                checked={this.state.gender === 'Female'}
+              />
+              <label htmlFor='female'>Female</label>
+            </div>
+            <div>
+              <input
+                id='male'
+                type='radio'
+                name='gender'
+                value='Male'
+                onChange={this.handleChange}
+                checked={this.state.gender === 'Male'}
+              />
+              <label htmlFor='male'>Male</label>
+            </div>
+            <div>
+              <input
+                id='other'
+                type='radio'
+                name='gender'
+                value='Other'
+                onChange={this.handleChange}
+                checked={this.state.gender === 'Other'}
+              />
+              <label htmlFor='other'>Other</label>
+            </div>
+          </div>
+
+          <div>
+            <p>Select your skills</p>
+            <div>
+              <input
+                type='checkbox'
+                id='html'
+                name='html'
+                onChange={this.handleChange}
+              />
+              <label htmlFor='html'>HTML</label>
+            </div>
+            <div>
+              <input
+                type='checkbox'
+                id='css'
+                name='css'
+                onChange={this.handleChange}
+              />
+              <label htmlFor='css'>CSS</label>
+            </div>
+            <div>
+              <input
+                type='checkbox'
+                id='javascript'
+                name='javascript'
+                onChange={this.handleChange}
+              />
+              <label htmlFor='javascript'>JavaScript</label>
+            </div>
+          </div>
+          <div>
+            <label htmlFor='bio'>Bio</label> <br />
+            <textarea
+              id='bio'
+              name='bio'
+              value={this.state.bio}
+              onChange={this.handleChange}
+              cols='120'
+              rows='10'
+              placeholder='Write about yourself ...'
+            />
+          </div>
+
+          <div>
+            <input type='file' name='file' onChange={this.handleChange} />
+          </div>
+          <div>
+            <button>Submit</button>
+          </div>
+        </form>
       </div>
     )
   }
