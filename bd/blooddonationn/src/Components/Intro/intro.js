@@ -4,12 +4,6 @@ import file from './images/HIV.pdf';
 
 
 function Intro(props) {
-//   var typed = new Typed(".typing", {
-//     strings: ["Developer", "Designer", "Freelancer"],
-//     typeSpeed: 100,
-//     backSpeed: 60,
-//     loop: true,
-//   });
   return (
     <section class="home" id="home">
       <div class="max-width">

@@ -76,7 +76,7 @@ function App() {
       labels: ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Blood Type Bar chart ",
           backgroundColor: [
             "#27AE60",
             "#8E44AD",
@@ -105,7 +105,7 @@ function App() {
       labels: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Blood Type Polar area chart",
           backgroundColor: [
             "#3e95cd",
             "#8e5ea2",
@@ -132,7 +132,7 @@ function App() {
       labels: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Gender Doughnut chart",
           backgroundColor: [
             "#3e95cd",
             "#8e5ea2",

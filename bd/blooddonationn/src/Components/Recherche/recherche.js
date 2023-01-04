@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
 import haroun from "./Data";
+import './recherche.css'
 export default function Recherche() {
   const [message, setMessage] = useState("");
 
@@ -18,7 +19,7 @@ export default function Recherche() {
   const handleClick = () => {
     // 👇 "message" stores input field value
     setUpdated(message);
-    let j = 0
+    let j = 0;
     let n = 0;
     let c ='';
     let f;
@@ -34,8 +35,12 @@ export default function Recherche() {
       }
       console.log('c=',c,'f=',final)
       f=" " + final
-      if (c == f) {
+      if (c === f) {
         n = n + 1;
+      }
+      else{
+        console.log(typeof(c),typeof(f))
+        console.log(c==f);
       }
     }
     setNum(n);

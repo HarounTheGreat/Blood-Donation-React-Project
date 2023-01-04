@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import haroun from "./Data";
-
+import './R.css'
 const Mat = ({ mat }) => {
   console.log(mat);
   const matList = mat.map((line) => <Line line={line} />);
@@ -55,8 +55,8 @@ export default function R() {
   }
   return (
     <div className="container">
-      <div>
-        <h1>List</h1>
+      <h1>List</h1>
+      <div className="table">
         <Mat mat={mat} />
       </div>
     </div>
