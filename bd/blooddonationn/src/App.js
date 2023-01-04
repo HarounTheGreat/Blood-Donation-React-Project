@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Chart from "chart.js/auto";
 import haroun from "./Data";
+import './App.css'
 
 const y = () => {
-  let M = 0;
   let F = 0;
+  let M = 0;
   console.log(haroun.length);
   for (let i = 0; i < haroun.length; i++) {
     if (haroun[i].Sex == "female") {
@@ -44,7 +45,8 @@ const Blood_type_value = () => {
 
 function App() {
   // Blood Type Chart
-
+  const [M, setM] = useState(0);
+  const [F, setF] = useState(0);
   var xValues = ["Male", "Fmale"];
   var yValues = y();
   var barColors = ["#b91d47", "#00aba9"];
@@ -97,20 +99,63 @@ function App() {
       },
     },
   });
+  new Chart(document.getElementById("polar-chart"), {
+    type: "polarArea",
+    data: {
+      labels: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: [
+            "#3e95cd",
+            "#8e5ea2",
+            "#3cba9f",
+            "#e8c3b9",
+            "#c45850",
+            "#e8c3b9",
+            "#c45850",
+          ],
+          data: Blood_type_value(),
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Blood Type ",
+      },
+    },
+  });
+  new Chart(document.getElementById("doughnut-chart"), {
+    type: "doughnut",
+    data: {
+      labels: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: [
+            "#3e95cd",
+            "#8e5ea2",
+            "#3cba9f",
+            "#e8c3b9",
+            "#c45850",
+            "#e8c3b9",
+            "#c45850",
+          ],
+          data: Blood_type_value(),
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Blood Type ",
+      },
+    },
+  });
   return (
     <div>
-      <h1>halla fi arhebou</h1>
-      <div className="expenses-filter">
-        <div className="expenses-filter__control">
-          <label>Filter by year</label>
-          <select >
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-          </select>
-        </div>
-      </div>
+      <h1>Chart</h1>
     </div>
   );
 }

@@ -1,13 +1,24 @@
-
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Benifits from "./Components/Benifits/benefits ";
+import Intro from "./Components/Intro/intro";
+import Video_fun from "./Components/Videos/videos";
+import Recherche from "./Components/Recherche/recherche"
+import R from './Components/Recherche/R'
 
 import "./index.css";
 import App from "./App";
 const Index = () => {
   return (
-    <div className="container">
-      <App />
+    <div>
+      <Intro />
+      <div className="container">
+        <Benifits />
+        <Video_fun />
+        <App />
+        <Recherche />
+        <R />
+      </div>
     </div>
   );
 };

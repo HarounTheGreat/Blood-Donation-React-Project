@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.flex-container {
+  transition: 1s;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+}

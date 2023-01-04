@@ -10073,23 +10073,29 @@ new Chart(document.getElementById("bar-chart"), {
 // let c = "";
 // let new_haroun = [];
 // let current_element;
-// for (let j = 0; haroun.length - 100; j++) {
-//   current_element = haroun[j];
-//   console.log(current_element);
-//   for (i = 0; i < 50; i++) {
-//     console.log(current_element.City[i]);
-//     if (current_element.City[i] != ",") {
-//       c = c + City[i];
-//     } else {
-//       break;
-//     }
-//   }
+for (let j = 0; haroun.length - 100; j++) {
+current_element = haroun[j];
+console.log(current_element);
+for (i = 0; i < 50; i++) {
+  console.log(current_element.City[i]);
+  if (current_element.City[i] != ",") {
+    c = c + City[i];
+  } else {
+    break;
+  }
+}
+}
 //   if (current_element.City == c) {
 //     new_haroun.push(current_element);
 //   }
 // }
 // console.log(new_haroun);
 
-const p = document.getElementById(cars).innerHTML
-
-console.log('p=',p);
+let count=0;
+let city_inp="";
+let blood_type_inp="O-";
+for(i=0;i<haroun.length;i++){
+  if(haroun[i].City==city_inp && haroun[i].Blood_type==blood_type_inp ){
+    count=count+1;
+  }
+}
