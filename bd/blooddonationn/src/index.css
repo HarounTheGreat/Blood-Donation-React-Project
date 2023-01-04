@@ -23,7 +23,8 @@ code {
 
 .flex-child {
   flex: 1;
-  border: 8px solid rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .flex-child:first-child {
