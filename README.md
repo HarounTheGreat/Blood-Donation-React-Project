@@ -2,7 +2,110 @@
 
 ---
 
-# "Blood is the most precious gift that anyone can give to another person — the gift of life."
+# Here you can find my React Project :point_down:
+
+`React-Notes/bd/blooddonationn`
+
+```cmd
+cd React-Notes\bd\blooddonationn
+
+npm start
+```
+
+<img src="https://miro.medium.com/max/1400/1*KN7zbaWkbm5E71zZWfTf7A.gif">
+
+```
+src;
+App.js;
+index.js;
+components
+- Benifits
+- Intro
+- Recherche
+- Video;
+img
+- App.css
+- App.js
+- Data.js
+- Index.js;
+```
+
+---
+
+### Data.js
+
+Dataset contains **1000 Donar**
+
+Table haroun
+| | Variable | Explanation |
+|---:|:-----------|:-----------------------------------------------------------|
+| 0 | id | Donar ID |
+| 1 | fullName | Donor Full Name |
+| 2 | sex | Donor sex (Male OR Female) |
+| 3 | blood_type | Donor Blood Type |
+| 4 | city | Donor City (City , State , Country) |
+| 5 | phoneNum | Donor Phone Number |
+| 6 | last_donation | Donor's Last Donation Data |
+
+---
+
+### Index.js
+
+- Call for Functions
+  - Intro
+    -  props : dIntro={dIntro} 
+  - Benifits 
+    - props : img_data={img_data} 
+  - Video_fun 
+  - App 
+  - Recherche 
+  - R 
+
+---
+
+### App.js
+
+- **4 Charts**
+  - Gender Doughnut chart
+  - Blood Type Bar chart
+  - Blood Type Polar area chart
+  - Doughnut chart
+- **Blood_type_value** : Return the blood type number (Exp: there is 400 Donor have O+ Blood Type)
+
+---
+
+## Components
+
+### Intro
+
+- - Intro (Intro and Download Button to see My Plan)
+
+---
+
+### Benifits
+
+- Benifits(3 boxes)
+
+---
+
+### Videos
+
+- Video (Explation Video about My Project)
+
+---
+
+### Recherche
+
+- Recherche
+- - R (Put Donors numbers in the Table )
+- - Input city
+- - - Count the number of donors of this City entred by the user
+
+---
+
+# data mining
+
+---
 
 ## World Health Organization
 
@@ -43,70 +146,3 @@ Forecasting blood supply is a serious and recurrent problem for blood collection
 **HIV**
 
 ![img](img/p3.PNG)
-
-# Here you can find my React Project
-
-```js
-cd React-Notes\bd\blooddonationn
-
-npm start
-```
-
-<img src="https://miro.medium.com/max/1400/1*KN7zbaWkbm5E71zZWfTf7A.gif">
-
-```
-src;
-App.js;
-index.js;
-components 
-- Benifits 
-- Intro 
-- Recherche 
-- Video;
-img 
-- App.css 
-- App.js 
-- Data.js 
-- Index.js;
-```
-
-### Data.js 
-
-Table haroun
-|    | Variable   | Explanation                                                |
-|---:|:-----------|:-----------------------------------------------------------|
-|  0 | id         | Donar ID                                                   |
-|  1 | fullName   | Donor Full Name                                            |
-|  2 | sex        | Donor sex (Male OR Female)                                 |
-|  3 | blood_type | Donor Blood Type                                           |
-|  4 | city       | Donor City (City , State , Country)                        |
-|  5 | phoneNum   | Donor Phone Number                                         |
-|  6 | last_donation | Donor's Last Donation Data                              |
-
-
-
-### Index.js
-
-- Call Functions
-
-### App.js
-
-* **4 Charts**
-  - Gender Doughnut chart
-  - Blood Type Bar chart
-  - Blood Type Polar area chart
-  - Doughnut chart
-* **Blood_type_value** : Return the blood type number (Exp: there is 20 Donor have O+ Blood Type)
-
-## Components
-### Intro
-
-* * Intro (Intro and Download Button to see My Plan)
-### Benifits
-  * Benifits(3 boxes)
-### Videos
-  * Video (Explation Video about My Project)
-### Recherche
-  * Recherche
-  * - R (Put Donors numbers in the Table )
-  * - Input city
