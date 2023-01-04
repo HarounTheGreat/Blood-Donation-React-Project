@@ -3,7 +3,7 @@ import "./Intro.css";
 import file from './images/HIV.pdf';
 
 
-function Intro() {
+function Intro(props) {
 //   var typed = new Typed(".typing", {
 //     strings: ["Developer", "Designer", "Freelancer"],
 //     typeSpeed: 100,
@@ -14,10 +14,10 @@ function Intro() {
     <section class="home" id="home">
       <div class="max-width">
         <div class="home-content">
-          <div class="text-1">Hello, my name is</div>
-          <div class="text-2">Med Haroun Bouriga</div>
+          <div class="text-1">{props.dIntro.greeting}</div>
+          <div class="text-2">{props.dIntro.name}</div>
           <div class="text-3">
-            This is my Project<span class="typing"></span>
+          {props.dIntro.object}<span class="typing"></span>
           </div>
           <a href={file} download>
           download App

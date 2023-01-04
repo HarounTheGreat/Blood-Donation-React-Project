@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Chart from "chart.js/auto";
 import haroun from "./Data";
-import './App.css'
+import "./App.css";
 
 const y = () => {
   let F = 0;
@@ -139,8 +139,8 @@ function App() {
             "#3cba9f",
             "#e8c3b9",
             "#c45850",
-            "#e8c3b9",
-            "#c45850",
+            "#d00000",
+            "#b45850",
           ],
           data: Blood_type_value(),
         },

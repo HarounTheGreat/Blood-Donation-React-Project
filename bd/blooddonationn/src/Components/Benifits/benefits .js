@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Benifits.css"
-import blood1 from './img/Blood1.png'
-import blood2 from './img/Blood2.jpg'
-import blood3 from './img/Blood3.jpg'
+// import blood1 from './img/Blood1.png'
+// import blood2 from './img/Blood2.jpg'
+// import blood3 from './img/Blood3.jpg'
 
-function Benifits() {
+function Benifits(props) {
   return (
       <div class="container course pb-5 pt-5">
         <h1 class="h1-responsive font-weight-bold text-center my-4">
@@ -21,7 +21,7 @@ function Benifits() {
                   class="bg-image hover-overlay ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={blood1} class="img-fluid" />
+                  <img src={props.img_data.img1} class="img-fluid" />
                 </div>
               <div class="card-body">
                 <h5 class="card-title">Help Sickle Cell Patients</h5>
@@ -40,7 +40,7 @@ function Benifits() {
                   class="bg-image hover-overlay ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={blood2} class="img-fluid" />
+                  <img src={props.img_data.img2} class="img-fluid" />
                 </div>
               <div class="card-body">
                 <h5 class="card-title">Help Sickle Cell Patients</h5>
@@ -59,7 +59,7 @@ function Benifits() {
                   class="bg-image hover-overlay ripple"
                   data-mdb-ripple-color="light"
                 >
-                  <img src={blood3} class="img-fluid" />
+                  <img src={props.img_data.img3} class="img-fluid" />
                 </div>
               <div class="card-body">
                 <h5 class="card-title">Help Sickle Cell Patients</h5>
