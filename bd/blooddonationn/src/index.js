@@ -4,7 +4,6 @@ import Benifits from "./Components/Benifits/benefits ";
 import Intro from "./Components/Intro/intro";
 import Video_fun from "./Components/Videos/videos";
 import Recherche from "./Components/Recherche/recherche";
-import R from "./Components/Recherche/R";
 import blood1 from "./img/Blood1.png";
 import blood2 from "./img/Blood2.jpg";
 import blood3 from "./img/blood3.jpg";
@@ -29,7 +28,6 @@ const Index = () => {
         <Video_fun />
         <App />
         <Recherche />
-        <R />
       </div>
     </div>
   );

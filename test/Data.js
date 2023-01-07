@@ -1,4 +1,4 @@
-export const haroun = [
+const haroun = [
   {
     Id: "12000002",
     FullName: "iinszlmzfh",

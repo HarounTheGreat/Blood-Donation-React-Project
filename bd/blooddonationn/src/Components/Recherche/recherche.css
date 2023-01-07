@@ -12,3 +12,12 @@ button{
 button:hover{
     background-color: rgb(129, 201, 58);
 }
+.table {
+    border: 1px solid;
+    display: flex;
+    width: fit-content;
+    
+  }
+.td{
+  border: 1px solid;
+}

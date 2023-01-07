@@ -1,42 +1,22 @@
- import google fonts
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
-
-.max-width {
-  max-width: 1300px;
-  padding: 0 80px;
-  margin: auto;
+button {
+  border-radius: 30px;
+  background-color: green;
+  border: none;
+  width: 150px;
+  height: 50px;
+  font-size: 1.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(255, 255, 255);
 }
-.about.max-width {
+button:hover {
+  background-color: rgb(129, 201, 58);
+}
+.table {
+  border: 1px solid;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  width: fit-content;
 }
-.about.max-width {
-  width: 10%;
-  height: min-content;
+.td {
+  border: 1px solid;
 }
-
-section .title {
-  position: relative;
-  text-align: center;
-  font-size: 40px;
-  font-weight: 500;
-  margin-bottom: 60px;
-  padding-bottom: 20px;
-  font-family: "Ubuntu", sans-serif;
-}
-section .title::before {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  width: 180px;
-  height: 3px;
-  background: #111;
-  transform: translateX(-50%);
-}
-
