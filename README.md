@@ -53,13 +53,13 @@ Table haroun
 
 - Call for Functions
   - Intro
-    -  props : dIntro={dIntro} 
-  - Benifits 
-    - props : img_data={img_data} 
-  - Video_fun 
-  - App 
-  - Recherche 
-  - R 
+    - props : dIntro={dIntro}
+  - Benifits
+    - props : img_data={img_data}
+  - Video_fun
+  - App
+  - Recherche
+  - R
 
 ---
 
@@ -72,6 +72,14 @@ Table haroun
   - Doughnut chart
 - **Blood_type_value** : Return the blood type number (Exp: there is 400 Donor have O+ Blood Type)
 
+![img](README_IMG/Blood%20Type%20Bar%20chart.PNG)
+
+![img](README_IMG/Gender%20Doughnut%20chart.PNG)
+
+![img](README_IMG/Blood%20Type%20Polar%20area%20chart.PNG)
+
+![img](README_IMG/Doughnut%20chart.PNG)
+
 ---
 
 ## Components
@@ -80,17 +88,23 @@ Table haroun
 
 - - Intro (Intro and Download Button to see My Plan)
 
+![img](README_IMG/intro.PNG)
+
 ---
 
 ### Benifits
 
 - Benifits(3 boxes)
 
+![img](README_IMG/images.PNG)
+
 ---
 
 ### Videos
 
 - Video (Explation Video about My Project)
+
+![img](README_IMG/video.PNG)
 
 ---
 
@@ -100,6 +114,10 @@ Table haroun
 - - R (Put Donors numbers in the Table )
 - - Input city
 - - - Count the number of donors of this City entred by the user
+
+![img](README_IMG/city1.PNG)
+
+![img](README_IMG/city2.PNG)
 
 ---
 

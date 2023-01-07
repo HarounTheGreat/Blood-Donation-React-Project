@@ -69,9 +69,9 @@ export default function Recherche() {
     </div>
   );
 }
-const Tabb = ({mat}) => {
-  const matList = mat.map((line) => <td> {line} </td>);
-  return <div>{matList}</div>;
+const Tabb = ({ mat }) => {
+  const matList = mat.map((line) => <div className="card">{line}</div>);
+  return <div className="card">{matList}</div>;
 };
 const Mat = (rharoun) => {
   console.log("this==============", rharoun);
