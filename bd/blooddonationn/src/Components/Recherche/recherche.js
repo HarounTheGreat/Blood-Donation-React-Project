@@ -31,7 +31,6 @@ export default function Recherche(props) {
     }
     let n = 0;
     let aux = [];
-    let inputValue = rcity;
     const getcity = (city_stat_country) => {
       let c = "";
       for (let j = 0; j < 50; j++) {
@@ -71,7 +70,10 @@ export default function Recherche(props) {
       <input type="text" id="blood" name="blood" onChange={handleChange} />
 
       <h1>
-        City name is {rcity} and the blood type is {rblood}
+        City name is :
+        <div className="result">{rcity}</div>
+        and the blood type is :
+        <div className="result"> {rblood} </div>
       </h1>
 
       <button class="btn" onClick={handleClick}>

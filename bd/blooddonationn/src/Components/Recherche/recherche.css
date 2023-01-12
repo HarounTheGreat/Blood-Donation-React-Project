@@ -111,3 +111,12 @@ button:hover {
   padding-left: 10px;
   font-family: "Libre Baskerville", serif;
 }
+
+.result {
+  font-family: 'georgia';
+
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
