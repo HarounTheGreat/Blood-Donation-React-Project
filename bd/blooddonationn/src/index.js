@@ -7,6 +7,7 @@ import Recherche from "./Components/Recherche/recherche";
 import blood1 from "./img/Blood1.png";
 import blood2 from "./img/Blood2.jpg";
 import blood3 from "./img/blood3.jpg";
+import data from "./Data";
 import "./index.css";
 import App from "./App";
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
     img2: blood2,
     img3: blood3,
   };
+  const haroun =data;
   return (
     <div>
       <Intro dIntro={dIntro} />
@@ -27,7 +29,7 @@ const Index = () => {
         <Benifits img_data={img_data} />
         <Video_fun />
         <App />
-        <Recherche />
+        <Recherche haroun ={data}/>
       </div>
     </div>
   );

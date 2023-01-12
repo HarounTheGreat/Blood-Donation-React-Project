@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import haroun from "./Data";
 import "./recherche.css";
 
-export default function Recherche() {
+export default function Recherche(props) {
+  const haroun = props.haroun;
   const [rcity, setRcity] = useState("");
 
   const [rblood, setBlood] = useState("");
@@ -23,6 +23,12 @@ export default function Recherche() {
     console.log("==========", rcity);
   };
   const handleClick = () => {
+    if (rcity == "") {
+      alert("You forget to enter city name");
+    }
+    if (rblood == "") {
+      alert("You forget to enter blood type");
+    }
     let n = 0;
     let aux = [];
     let inputValue = rcity;
@@ -40,7 +46,7 @@ export default function Recherche() {
     //   console.log(getcity(haroun[0]), "------", inputValue);
     //   console.log(getcity(haroun[0]) == inputValue);
     for (let i = 0; i < haroun.length; i++) {
-      if ((rcity == getcity(haroun[i])) && (rblood== haroun[i].Blood_type)) {
+      if (rcity == getcity(haroun[i]) && rblood == haroun[i].Blood_type) {
         n++;
         console.log(n);
         aux.push(haroun[i]);
