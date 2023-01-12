@@ -10074,16 +10074,16 @@ new Chart(document.getElementById("bar-chart"), {
 // let new_haroun = [];
 // let current_element;
 for (let j = 0; haroun.length - 100; j++) {
-current_element = haroun[j];
-console.log(current_element);
-for (i = 0; i < 50; i++) {
-  console.log(current_element.City[i]);
-  if (current_element.City[i] != ",") {
-    c = c + City[i];
-  } else {
-    break;
+  current_element = haroun[j];
+  console.log(current_element);
+  for (i = 0; i < 50; i++) {
+    console.log(current_element.City[i]);
+    if (current_element.City[i] != ",") {
+      c = c + City[i];
+    } else {
+      break;
+    }
   }
-}
 }
 //   if (current_element.City == c) {
 //     new_haroun.push(current_element);
@@ -10091,11 +10091,27 @@ for (i = 0; i < 50; i++) {
 // }
 // console.log(new_haroun);
 
-let count=0;
-let city_inp="";
-let blood_type_inp="O-";
-for(i=0;i<haroun.length;i++){
-  if(haroun[i].City==city_inp && haroun[i].Blood_type==blood_type_inp ){
-    count=count+1;
+let count = 0;
+let city_inp = "";
+let blood_type_inp = "O-";
+for (i = 0; i < haroun.length; i++) {
+  if (haroun[i].City == city_inp && haroun[i].Blood_type == blood_type_inp) {
+    count = count + 1;
   }
 }
+
+let timer;
+
+document.addEventListener("input", (e) => {
+  const el = e.target;
+
+  if (el.matches("[data-color]")) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      document.documentElement.style.setProperty(
+        `--color-${el.dataset.color}`,
+        el.value
+      );
+    }, 100);
+  }
+});

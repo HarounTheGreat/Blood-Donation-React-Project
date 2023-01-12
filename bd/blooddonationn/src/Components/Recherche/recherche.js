@@ -3,8 +3,11 @@ import ReactDOM from "react-dom";
 import { useState } from "react";
 import haroun from "./Data";
 import "./recherche.css";
+
 export default function Recherche() {
   const [rcity, setRcity] = useState("");
+
+  const [rblood, setBlood] = useState("");
 
   const [updated, setUpdated] = useState(rcity);
 
@@ -14,14 +17,14 @@ export default function Recherche() {
 
   const [rharoun, setRharoun] = useState([]);
 
-  const handleChange = (event) => {
-    setRcity(event.target.value);
-    setFinal(event.target.value);
+  const handleChange = () => {
+    setRcity(document.getElementById("message").value);
+    setBlood(document.getElementById("blood").value);
+    console.log("==========", rcity);
   };
   const handleClick = () => {
     let n = 0;
     let aux = [];
-    setUpdated(rcity);
     let inputValue = rcity;
     const getcity = (city_stat_country) => {
       let c = "";
@@ -37,7 +40,7 @@ export default function Recherche() {
     //   console.log(getcity(haroun[0]), "------", inputValue);
     //   console.log(getcity(haroun[0]) == inputValue);
     for (let i = 0; i < haroun.length; i++) {
-      if (inputValue == getcity(haroun[i])) {
+      if ((rcity == getcity(haroun[i])) && (rblood== haroun[i].Blood_type)) {
         n++;
         console.log(n);
         aux.push(haroun[i]);
@@ -51,20 +54,23 @@ export default function Recherche() {
   const mat = Mat(rharoun);
 
   return (
-    <div>
-      <input
-        type="text"
-        id="message"
-        name="message"
-        onChange={handleChange}
-        value={rcity}
-      />
+    <div className="SearchCard">
+      <div className="titleSearch">
+        Get Phone Numbers of Donors in your City
+      </div>
+      <div className="city">Enter City Name Here</div>
+      <input type="text" id="message" name="message" onChange={handleChange} />
 
-      <h2>{rcity}</h2>
+      <div className="city">Enter Blood Type Here</div>
+      <input type="text" id="blood" name="blood" onChange={handleChange} />
 
-      <h2>City: {updated}</h2>
+      <h1>
+        City name is {rcity} and the blood type is {rblood}
+      </h1>
 
-      <button onClick={handleClick}>Update</button>
+      <button class="btn" onClick={handleClick}>
+        Search
+      </button>
       <Tabb mat={mat} />
     </div>
   );
@@ -74,7 +80,6 @@ const Tabb = ({ mat }) => {
   return <div className="card">{matList}</div>;
 };
 const Mat = (rharoun) => {
-  console.log("this==============", rharoun);
   let j = 0;
   let t = [];
   let mat = [];
